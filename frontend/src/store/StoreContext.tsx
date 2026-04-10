@@ -62,7 +62,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   const fetchProducts = async () => {
     try {
       setLoading(true)
-      const { data } = await axios.get('http://localhost:5000/api/products')
+      const { data } = await axios.get('http://e-commerce-websites-for-gold-shop-production.up.railway.app/api/products')
       // Normalize MongoDB _id to id for frontend compatibility
       const normalized = data.map((p: any) => ({
         ...p,

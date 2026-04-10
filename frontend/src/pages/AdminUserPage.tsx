@@ -51,7 +51,7 @@ export function AdminUserPage() {
           Authorization: `Bearer ${userInfo?.token}`,
         },
       }
-      const { data } = await axios.get('http://localhost:5000/api/users', config)
+      const { data } = await axios.get('http://e-commerce-websites-for-gold-shop-production.up.railway.app/api/users', config)
       setUsers(data)
       setError(null)
     } catch (err: any) {
@@ -69,7 +69,7 @@ export function AdminUserPage() {
             Authorization: `Bearer ${userInfo?.token}`,
           },
         }
-        await axios.delete(`http://localhost:5000/api/users/${id}`, config)
+        await axios.delete(`http://e-commerce-websites-for-gold-shop-production.up.railway.app/api/users/${id}`, config)
         setUsers(users.filter((u) => u._id !== id))
         showNotification(`User "${name}" deleted successfully.`, 'success')
       } catch (err: any) {
@@ -86,7 +86,7 @@ export function AdminUserPage() {
             Authorization: `Bearer ${userInfo?.token}`,
           },
         }
-        await axios.put(`http://localhost:5000/api/users/${id}/admin`, {}, config)
+        await axios.put(`http://e-commerce-websites-for-gold-shop-production.up.railway.app/api/users/${id}/admin`, {}, config)
         fetchUsers()
         showNotification('User promoted to Admin status.', 'success')
       } catch (err: any) {

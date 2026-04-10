@@ -89,7 +89,7 @@ export function CheckoutPage() {
 
     setLoading(true)
     try {
-      const res = await axios.post('http://localhost:5000/api/orders', payload)
+      const res = await axios.post('http://e-commerce-websites-for-gold-shop-production.up.railway.app/api/orders', payload)
       console.log('Order saved:', res.data)
       clearCart()
       setPlaced(true)

@@ -78,7 +78,7 @@ export function AdminProductPage() {
   const fetchProducts = async () => {
     try {
       setLoading(true)
-      const { data } = await axios.get('http://localhost:5000/api/products')
+      const { data } = await axios.get('https://e-commerce-websites-for-gold-shop-production.up.railway.app/products')
       setProducts(data)
       setError(null)
     } catch (err: any) {
@@ -96,7 +96,7 @@ export function AdminProductPage() {
             Authorization: `Bearer ${userInfo?.token}`,
           },
         }
-        await axios.delete(`http://localhost:5000/api/products/${id}`, config)
+        await axios.delete(`https://e-commerce-websites-for-gold-shop-production.up.railway.app/products/${id}`, config)
         setProducts(products.filter((p) => p._id !== id))
         showNotification(`Product "${name}" deleted successfully.`, 'success')
       } catch (err: any) {
@@ -176,10 +176,10 @@ export function AdminProductPage() {
       }
 
       if (isEditing && editProductId) {
-        await axios.put(`http://localhost:5000/api/products/${editProductId}`, productPayload, config)
+        await axios.put(`http://e-commerce-websites-for-gold-shop-production.up.railway.app/api/products/${editProductId}`, productPayload, config)
         showNotification('Product updated successfully!', 'success')
       } else {
-        await axios.post('http://localhost:5000/api/products', productPayload, config)
+        await axios.post('http://e-commerce-websites-for-gold-shop-production.up.railway.app/api/products', productPayload, config)
         showNotification('Product published successfully!', 'success')
       }
       

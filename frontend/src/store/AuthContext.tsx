@@ -40,7 +40,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setLoading(true)
     setError(null)
     try {
-      const { data } = await axios.post('http://localhost:5000/api/users/login', { email, password })
+      const { data } = await axios.post('https://e-commerce-websites-for-gold-shop-production.up.railway.app/api/users/login', { email, password })
       setUserInfo(data)
     } catch (err: any) {
       setError(err.response?.data?.message || 'Login failed')
@@ -54,7 +54,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setLoading(true)
     setError(null)
     try {
-      const { data } = await axios.post('http://localhost:5000/api/users', { name, email, password })
+      const { data } = await axios.post('http://e-commerce-websites-for-gold-shop-production.up.railway.app/api/users', { name, email, password })
       setUserInfo(data)
     } catch (err: any) {
       setError(err.response?.data?.message || 'Signup failed')
